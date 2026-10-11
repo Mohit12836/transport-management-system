@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    max-width: 100%;
+    overflow-x: clip;
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    background-color: #020617; /* Slate 950 */
+    color: #f8fafc;
+  }
+}
+
+/* Custom Print Optimization for Transport Lorry Receipts */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  header, aside, button, nav, .print\:hidden {
+    display: none !important;
+  }
+
+  .print\:page-break-after-always {
+    page-break-after: always;
+    break-after: page;
+  }
+}
