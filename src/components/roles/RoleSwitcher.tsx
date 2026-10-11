@@ -122,35 +122,35 @@ export const RoleSwitcher: React.FC<RoleSwitcherProps> = ({ isOpen, onClose }) =
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-4xl bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl text-white">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/85 backdrop-blur-2xl overflow-y-auto">
+      <div className="relative w-full max-w-4xl glass-panel glass-panel-indigo bg-gradient-to-br from-slate-900/95 via-slate-950/98 to-slate-950 rounded-3xl p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.8)] border border-white/10 text-white">
         {/* Header */}
-        <div className="flex items-start justify-between pb-6 border-b border-slate-800">
+        <div className="flex items-start justify-between pb-6 border-b border-white/10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-red-500/10 text-red-400 border border-red-500/20 mb-2">
-              <Info className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold badge-glow-indigo mb-2">
+              <Info className="w-3.5 h-3.5 text-indigo-400" />
               Demo Role Persona Switcher
             </div>
-            <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight">
+            <h2 className="text-xl sm:text-2xl font-black tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent">
               Select User Role Experience
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400 mt-1">
+            <p className="text-xs sm:text-sm text-slate-300 mt-1 font-medium">
               Switch instant perspectives to test role-specific workflows, permissions, and dashboards.
             </p>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors"
+            className="p-2.5 rounded-xl bg-slate-800/80 text-slate-400 hover:text-white hover:bg-slate-700/80 border border-white/10 transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Notice */}
-        <div className="my-4 p-3.5 rounded-2xl bg-slate-800/60 border border-slate-700 text-xs text-slate-300 flex items-center gap-3">
-          <Info className="w-4 h-4 text-amber-400 shrink-0" />
+        <div className="my-4 p-4 rounded-2xl bg-slate-900/80 border border-white/10 text-xs text-slate-300 flex items-center gap-3 shadow-inner">
+          <Info className="w-4 h-4 text-cyan-400 shrink-0" />
           <span>
-            <strong>Note:</strong> This client-side selector is for interactive demonstration only. Real production deployments enforce JWT/RBAC server-side session tokens with Row-Level Security.
+            <strong className="text-cyan-300">Architecture Note:</strong> This client-side selector is for interactive demonstration. Real production deployments enforce JWT/RBAC server-side session tokens with Row-Level Security.
           </span>
         </div>
 
@@ -162,45 +162,45 @@ export const RoleSwitcher: React.FC<RoleSwitcherProps> = ({ isOpen, onClose }) =
               <div
                 key={r.role}
                 onClick={() => handleSelectRole(r.role)}
-                className={`group cursor-pointer rounded-2xl p-5 border transition-all relative flex flex-col justify-between ${
+                className={`group cursor-pointer rounded-2xl p-5 border transition-all duration-300 relative flex flex-col justify-between ${
                   isSelected
-                    ? 'bg-gradient-to-br from-slate-800 to-slate-850 border-red-500 ring-2 ring-red-500/40 shadow-lg shadow-red-500/10'
-                    : 'bg-slate-850/50 border-slate-800 hover:border-slate-700 hover:bg-slate-800/80'
+                    ? 'bg-gradient-to-br from-indigo-950/60 via-slate-900/90 to-slate-900 border-indigo-400/80 ring-2 ring-indigo-500/50 shadow-[0_0_25px_rgba(99,102,241,0.35)] scale-[1.02]'
+                    : 'bg-slate-900/60 border-white/5 hover:border-indigo-400/40 hover:bg-slate-850/80 hover:-translate-y-1 hover:shadow-lg'
                 }`}
               >
                 {isSelected && (
-                  <div className="absolute top-3 right-3 text-red-400 flex items-center gap-1 text-[11px] font-bold">
-                    <CheckCircle2 className="w-4 h-4" />
+                  <div className="absolute top-3 right-3 text-cyan-300 flex items-center gap-1 text-[11px] font-bold bg-cyan-500/15 border border-cyan-400/30 px-2 py-0.5 rounded-full shadow-[0_0_10px_rgba(6,182,212,0.3)]">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400" />
                     <span>Active</span>
                   </div>
                 )}
 
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="p-2.5 rounded-xl bg-slate-800 border border-slate-700/60 group-hover:scale-105 transition-transform">
+                    <div className="p-2.5 rounded-xl bg-slate-800/80 border border-white/10 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(99,102,241,0.3)] transition-all">
                       {r.icon}
                     </div>
                     <div>
-                      <h3 className="font-bold text-sm text-white group-hover:text-red-400 transition-colors">
+                      <h3 className="font-bold text-sm text-white group-hover:text-cyan-300 transition-colors">
                         {r.title}
                       </h3>
-                      <p className="text-[11px] text-slate-400">{r.subtitle}</p>
+                      <p className="text-[11px] text-slate-400 font-medium">{r.subtitle}</p>
                     </div>
                   </div>
 
                   <ul className="space-y-1.5 mb-4 text-[11px] text-slate-300">
                     {r.keyResponsibilities.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-1.5">
-                        <span className="text-red-400 font-bold">•</span>
+                        <span className="text-cyan-400 font-bold">•</span>
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-[10px]">
-                  <span className="text-slate-400">Permission:</span>
-                  <span className="font-semibold text-slate-200">{r.permissionsPreview}</span>
+                <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[10px]">
+                  <span className="text-slate-400 font-medium">Scope:</span>
+                  <span className="font-bold text-indigo-300">{r.permissionsPreview}</span>
                 </div>
               </div>
             );
@@ -211,7 +211,7 @@ export const RoleSwitcher: React.FC<RoleSwitcherProps> = ({ isOpen, onClose }) =
         <div className="mt-6 flex justify-end">
           <button
             onClick={onClose}
-            className="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 font-medium text-xs sm:text-sm text-slate-200 transition-colors"
+            className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 font-bold text-xs sm:text-sm text-white shadow-[0_0_15px_rgba(99,102,241,0.4)] transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
             Continue Demo
           </button>

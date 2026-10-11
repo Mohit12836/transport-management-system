@@ -37,7 +37,7 @@ export default function TMSDashboardPage() {
   const [isTripAssignmentOpen, setIsTripAssignmentOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100">
+    <div className="min-h-screen flex flex-col atmosphere-canvas text-slate-100 selection:bg-indigo-500 selection:text-white">
       {/* Demo Notice Banner */}
       <DemoModeBanner />
 

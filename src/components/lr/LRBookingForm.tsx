@@ -154,25 +154,25 @@ export const LRBookingForm: React.FC<LRBookingFormProps> = ({ isOpen, onClose })
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-5xl bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl text-white my-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-2xl overflow-y-auto">
+      <div className="relative w-full max-w-5xl glass-panel glass-panel-indigo bg-gradient-to-br from-slate-900/95 via-slate-950/98 to-slate-950 rounded-3xl p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.85)] border border-white/10 text-white my-8">
         {/* Header */}
-        <div className="flex items-start justify-between pb-6 border-b border-slate-800">
+        <div className="flex items-start justify-between pb-6 border-b border-white/10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-red-500/10 text-red-400 border border-red-500/20 mb-2">
-              <FileText className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold badge-glow-indigo mb-2">
+              <FileText className="w-3.5 h-3.5 text-indigo-400" />
               Consignment Note Generator (LR / Bilty)
             </div>
-            <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight">
+            <h2 className="text-xl sm:text-2xl font-black tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent">
               Create New Lorry Receipt
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400 mt-1">
+            <p className="text-xs sm:text-sm text-slate-300 mt-1 font-medium">
               Pre-calculates freight, GST & surcharges, and generates the standard 3-copy printable documentation.
             </p>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors"
+            className="p-2.5 rounded-xl bg-slate-800/80 text-slate-400 hover:text-white hover:bg-slate-700/80 border border-white/10 transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -478,27 +478,27 @@ export const LRBookingForm: React.FC<LRBookingFormProps> = ({ isOpen, onClose })
           </div>
 
           {/* Action Buttons */}
-          <div className="flex items-center justify-end gap-3 pt-4 border-t border-slate-800">
+          <div className="flex items-center justify-end gap-3 pt-4 border-t border-white/10">
             <button
               type="button"
               onClick={onClose}
-              className="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs sm:text-sm font-medium text-slate-300 transition-colors"
+              className="px-5 py-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-white/10 text-xs sm:text-sm font-semibold text-slate-300 transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isSubmitted}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-xs sm:text-sm font-bold text-white shadow-lg shadow-red-900/30 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-xs sm:text-sm font-bold text-white shadow-[0_0_20px_rgba(99,102,241,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
               {isSubmitted ? (
                 <>
-                  <Check className="w-4 h-4 animate-bounce" />
+                  <Check className="w-4 h-4 animate-bounce text-cyan-200" />
                   Generating LR...
                 </>
               ) : (
                 <>
-                  <Sparkles className="w-4 h-4" />
+                  <Sparkles className="w-4 h-4 text-cyan-200" />
                   Generate LR & Open 3-Copy Print
                 </>
               )}
